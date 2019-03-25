@@ -11,9 +11,32 @@ Para ajustarse al contenido de la asignatura de Tecnología Electrónica, se reali
 
 ## Diseño
 Usa 4 bloques diferenciados:
- - Generador de pulsos. Tiene por entrada la señal del sensor. Dentro de este deferencia dos bloques funcionales:
-  - Circuito RC.
-  - Operacional con conf. trigger-schmitt.
- - Reloj rápido.
- - Contador.
- - Astable. Para el flash del LED.
+- Generador de pulsos. Tiene por entrada la señal del sensor. Dentro de este deferencia dos bloques funcionales:
+	- Circuito RC.
+	- Operacional con conf. trigger-schmitt.
+- Reloj rápido.
+- Contador.
+- Astable. Para el flash del LED.
+### Tecnología
+Se escoge tecnología CMOS para la implementación de este proyecto.
+
+## Lista de componentes
+Lista de componentes que se debe comprar para la realización de este proyecto:
+```
+[ ] 74HC191	x 1
+[ ] 74HC04	x 1
+[ ] 74HC08	x 1
+[ ] 74HC00	x 1
+[ ] 74HC86	x 1
+[ ] 74HC244	x 1
+[ ] 10k resistor	x 3
+[ ] 70k resistor	x 1
+[ ] 5.83k resistor	x 1
+[ ] 3k resistor	x 1
+[ ] 3.9k resistor	x 1
+[ ] 1N4001	x 2
+[ ] TL082	x 1
+[ ] LM555	x 1
+[ ] 10n capacitor	x 3
+```
+## Lista de distribuidores
