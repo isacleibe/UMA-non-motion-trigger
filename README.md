@@ -21,7 +21,7 @@ Usa 4 bloques diferenciados:
 Se escoge tecnología CMOS para la implementación de este proyecto.
 ## Esquematico
 El esquematico del proyecto general, al que se ha llamado ROOT.TSC es este:
-![](Fotos/ROOT.jpg)
+![](Fotos/ROOT.JPG)
 
 ## Lista de componentes
 Lista de componentes que se debe comprar para la realización de este proyecto:
