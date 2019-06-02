@@ -44,8 +44,20 @@ Lista de componentes que se debe comprar para la realización de este proyecto:
 
 ## Justificación de los componentes
 En este apartado se describe con detalle los motivos que han llevado a escoger los modelos de integrados entre otros modelos. Antes de empezar se debe comentar que este se trata de un prototipado. Por lo que por simplicidad del proyecto se han procurado escoger componentes con los que se encuentra el diseñador familiarizado. Por otro lado, se ha escogido tecnología CMOS de alta velocidad.
+### Tilt Sensor
+Este sensor ofrece una señal todo-nada compatible con los niveles digitales que simplifica el diseño en comparación con la opción inicial del potenciometro.
+### TL082: Op Amp
+Se ha usado este amplificador operacional para realizar el bloque funcional del Trigger-Schmitt. Tiene un Slew-rate grande para no introducir retraso no deseado en la linea RC.
+### 1M4001
+Estos diodos se usan para recortar la señal de salida del operacional TL082 y hacerla compatible con los niveles lógicos.
+### 74HCT86: XOR gate
+La lógica de esta puerta permite generar el pulso /LOAD cuando se produce un flanco ya sea ascendente o descendente del sensor de inclinación. Gracias al retraso que produce el circuito RC se puede producir este pulso.
+### LM555
+Este es un dispositivo muy usado y en este caso se usa para generar una señal de reloj que se introduce al contador.
+### 74HCT08: AND gate
+La lógica de esta puerta permite detener la cuenta del 74HC191 cuando la salida QD de este se encuentra a nivel alto.
 ### 74HC191 : contador 4 bits
-Este es un contador de 4 bits con una entrada /LOAD asíncrona, activa a nivel bajo --> Según la hoja de características necesita un ancho de pulso de 16 ns con ``Vcc=4.5V`` para tener la certeza de que se ha introducido el valor del preset en la cuenta. Este es un tiempo muy reducido, aún así, tendremos que procurar que se cumpla este tiempo en nuestra señal /LOAD cada vez que queramos realizar el reseteo de la cuenta.
+Este es un contador de 4 bits con una entrada /LOAD asíncrona, activa a nivel bajo. Según la hoja de características necesita un ancho de pulso de 16 ns con ``Vcc=4.5V`` para tener la certeza de que se ha introducido el valor del preset en la cuenta. Tiempo que nuestro circuito RC permite cumplir.
 El valor de preset que introducimos es el ``0000``. Junto con la señal D/U y /CTEN a nivel bajo permitimos el avance de la cuenta.
 ## Calculo de frecuencia del LM555_astable
 Este componente tiene dos dos resistencias (típicamente llamadas ``RA`` y ``RB``) y un condensador ``C``. Esta configuración funciona como un multivibrador. El condensador ``C`` se carga a través de ``RA + RB`` y se descarga a través de ``RB``. La relación entre estas dos resistencias dará el ciclo de trabajo de la señal de salida.
@@ -67,4 +79,3 @@ C = 1u
 RA = 510k
 RB = 470kM
 ```
-**NOTA : Estos valores de resistencias son ya valores comerciales**
